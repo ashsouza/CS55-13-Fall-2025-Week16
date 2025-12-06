@@ -1,0 +1,26 @@
+/* Add this CSS to your main stylesheet (e.g., src/theme/variables.css or src/App.css) */
+
+.centered-tabs {
+  --overflow: visible; 
+  justify-content: center;
+}
+
+.centered-tabs::part(native) {
+  max-width: 500px; 
+  margin: 0 auto; 
+  justify-content: center;
+}
+
+/* Ensure the tab buttons are close together if needed */
+.centered-tabs ion-tab-button {
+  min-width: 100px; /* Give the buttons a fixed or minimum size */
+  max-width: 120px;
+  flex-grow: 0; /* Important: Prevents buttons from stretching to fill the space */
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/* This targets all IonIcon components nested inside an IonTabButton */
+ion-tab-button ion-icon {
+  font-size: 36px;
+  color: rgb(230, 125, 221); 
+}

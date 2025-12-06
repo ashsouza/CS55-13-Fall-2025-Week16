@@ -30,7 +30,7 @@ const Tab2: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Photo Gallery</IonTitle>
+            <IonTitle size="large" className="extra-large-title">Photo Gallery</IonTitle>
           </IonToolbar>
         </IonHeader>
 

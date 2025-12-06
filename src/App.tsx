@@ -9,9 +9,10 @@ import {
   IonTabs,
   setupIonicReact,
 } from '@ionic/react';
+import './App.css';
 import { IonReactRouter } from '@ionic/react-router';
 // CHANGE: Update the following import
-import { images, square, triangle } from 'ionicons/icons';
+import { images, square, triangle, heart, camera } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -36,19 +37,19 @@ const App: React.FC = () => (
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
+        <IonTabBar slot="bottom" className="centered-tabs">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
+            <IonIcon aria-hidden="true" icon={heart} />
             <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             {/* CHANGE: Update icon */}
-            <IonIcon aria-hidden="true" icon={images} />
+            <IonIcon aria-hidden="true" icon={camera} />
             {/* CHANGE: Update label */}
             <IonLabel>Photos</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
+            <IonIcon aria-hidden="true" icon={heart} />
             <IonLabel>Tab 3</IonLabel>
           </IonTabButton>
         </IonTabBar>
