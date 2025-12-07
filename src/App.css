@@ -1,26 +1,89 @@
-/* Add this CSS to your main stylesheet (e.g., src/theme/variables.css or src/App.css) */
-
+/* Reset default Ionic tab bar styles and handle safe area insets */
 .centered-tabs {
-  --overflow: visible; 
+  --overflow: visible;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  margin: 0;
+  padding: 0;
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .centered-tabs::part(native) {
-  max-width: 500px; 
-  margin: 0 auto; 
+  display: flex;
   justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Ensure the tab buttons are close together if needed */
+/* Ensure the tab buttons are properly sized and centered as a group */
 .centered-tabs ion-tab-button {
-  min-width: 100px; /* Give the buttons a fixed or minimum size */
+  flex: 0 0 auto;
+  min-width: 100px;
   max-width: 120px;
-  flex-grow: 0; /* Important: Prevents buttons from stretching to fill the space */
-  padding-left: 5px;
-  padding-right: 5px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 0;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 0;
+  --padding-bottom: 0;
 }
+
+/* Ensure equal spacing between buttons */
+.centered-tabs ion-tab-button:not(:first-child) {
+  margin-left: 0;
+}
+
+.centered-tabs ion-tab-button:not(:last-child) {
+  margin-right: 0;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .centered-tabs::part(native) {
+    max-width: 100%;
+    padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .centered-tabs ion-tab-button {
+    min-width: 80px;
+    max-width: 100px;
+    padding-left: 8px;
+    padding-right: 8px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+  }
+}
+
+/* Ensure centering works on all screen sizes */
+@media (min-width: 769px) {
+  .centered-tabs::part(native) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 /* This targets all IonIcon components nested inside an IonTabButton */
 ion-tab-button ion-icon {
   font-size: 36px;
-  color: rgb(230, 125, 221); 
+  color: rgb(230, 125, 221);
 }

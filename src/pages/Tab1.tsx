@@ -68,8 +68,8 @@ const Tab1: React.FC = () => {
                 <IonLabel className="product-label" slot="end"> 
                   <h2>{item.post_title}</h2>
                   <p className="date-time">{new Date(item.post_date).toLocaleDateString()}</p>
-                  <h3>Price:{item.price}</h3>
-                  <p>SKU:{item.sku}</p>
+                  <h3>Price: {item.price}</h3>
+                  <p>SKU: {item.sku}</p>
                 </IonLabel>
               </IonItem>
             );
